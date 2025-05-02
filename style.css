@@ -1,0 +1,40 @@
+body {
+    background: black;
+    font-family: cursive;
+    font-weight: 700px;
+    font-size: 400;
+    color: rgb(183, 183, 183);
+}
+
+h1{
+  text-decoration: underline;
+  text-shadow: 2px 2px rgb(3, 7, 4);
+  text-align: center;
+  padding-top: 100px;
+  box-sizing: cyan;
+}
+
+.dav{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+button{
+  border-radius: 12px;
+  box-shadow: cyan;
+}
+
+.ife p{
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.ife{
+  background-color: black;
+  padding-top: none;
+  border-radius: 2px;
+  box-shadow: 0 0 20px cyan;
+}
+

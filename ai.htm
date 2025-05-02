@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Voice Chat</title>
+  <style>
+  </style>
+</head>
+<body>
+  <h1>Talk to the AI</h1>
+  <button onclick="startListening()">🎤 Start Talking</button>
+  <p id="userSpeech">You said: <em>...</em></p>
+  <p id="aiReply">AI says: <em>...</em></p>
+
+  <script>
+    // Check for browser support
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+
+    // When speech is recognized
+    recognition.onresult = function(event) {
+      const userText = event.results[0][0].transcript;
+      document.getElementById("userSpeech").innerHTML = `You said: <em>${userText}</em>`;
+      
+      const aiText = getAIResponse(userText);
+      document.getElementById("aiReply").innerHTML = `AI says: <em>${aiText}</em>`;
+      
+      speak(aiText);
+    };
+
+    // Start listening
+    function startListening() {
+      recognition.start();
+    }
+
+    // Simple chatbot logic
+    function getAIResponse(input) {
+      input = input.toLowerCase();
+      if (input.includes("hello")) return "Hi there!";
+      if (input.includes("how are you")) return "I'm just code, but I'm doing fine!";
+      if (input.includes("your name")) return "I'm carvis.";
+      if (input.includes("you are an ai")) return "YES!"
+      return "Sorry, I didn't understand that.";
+    }
+
+    // Text-to-speech
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
